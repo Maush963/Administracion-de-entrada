@@ -1,5 +1,5 @@
 # Ticket to ride
-## Administración de entrada
+##  *Administración de entrada*
 ### Contexto
 
 Este proyecto esta basado en el sistema de entrada/salida que tiene el Tecnonlógico
