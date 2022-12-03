@@ -1,0 +1,156 @@
+Subcompetencia: "Diseño clases sencillas completas (con todos los atributos y métodos requeridos). Avance 2"
+Error original: No se había implementado atributos ni métodos a las clases.
+Cambio realizado: Se realizaron múltiples clases con varios atributos y métodos cada uno.
+  float getsalario() { return salario; };
+  string getgrupos() { return grupos; };
+  string getmateria() { return materia; };
+
+  void imprimeprofesor() {
+    imprime_tarjeta();
+    cout << "Grupos del profesor: " << grupos << endl;
+    cout << "Materia que imparte: " << materia << endl;
+    cout << "Tiempo dentro del campus: " << fixed << setprecision(2)
+         << primero.getcalculahoras() << endl;
+    cout << "Este es el salario por hora del día de hoy : " << salario << endl;
+    cout << "Este es su salario total: " << salariototal << endl;
+  };
+
+Líneas de código donde se ve la corrección: "profesor.h" 35-47
+
+
+Subcompetencia: "Modelo un diagrama de clase útil para solucionar un problema utilizando UML. Avance 2"
+Error original: No estaba contemplada la composición o agregación dentro del diagrama de clase.
+Cambio realizado: Se volvió a diseñar un diagrama de clase que pudiera solucionar la situación planteada.
+Líneas de código donde se ve la corrección:Ticket to ride.png
+
+
+Subcompetencia: "Utilizo el concepto de herencia en el diagrama de clases de manera adecuada. Avance 2"
+Error original: No se había implementado la parte de herencia.
+Cambio realizado: Se agrego una clase padre que heredara valores a dos hijos distintos.
+alumno(string carr, float prom, int bec, string mat, string nom, string cam,reloj al) : tarjeta(mat, nom, cam) {
+    alum = al;
+    carrera = carr;
+    promedio = prom;
+    beca = bec;
+  };
+Líneas de código donde se ve la corrección:"alumno.h" 19-26
+
+
+Subcompetencia: "Utilizo el concepto de composición (o agreagación) en el diagrama de clases. Avance 3"
+Error original: En su momento no se supo implementar esta característica.
+Cambio realizado: Se volvio a diseñar el diagrama de clases para que contara con todos los puntos.
+Líneas de código donde se ve la corrección: Ticket to ride.png
+
+
+Subcompetencia: "Implemento las clases en c++ siguiendo el diseño del diagrama de clases en UML. Avance 3"
+Error original: Seguí la primera versión de mi UML y no se implementaron correctamente los cambios.
+Cambio realizado: Al diseñar nuevamente el diagrama de clases lo pude seguir de una manera más sencilla.
+Líneas de código donde se ve la corrección: Ticket to ride.png
+
+
+Subcompetencia: "Codifico métodos y atributos de clase correctamente. (constructores, getters, setters). Avance 1"
+Error original: No se tenian los conocimientos necesarios para realizar los metodos que fueron pedidos.
+Cambio realizado: Se realizaron cuatro clases distintas y cada una cumple con estos atributos.
+private:
+  string matricula;
+  string nombre;
+  string campus;
+
+public:
+  tarjeta() {
+    matricula = "A01710308";
+    nombre = "Mauricio Salas";
+    campus = "Querétaro";
+  };
+
+  tarjeta(string mat, string nom, string cam) {
+    matricula = mat;
+    nombre = nom;
+    campus = cam;
+  };
+
+  string getmatricula() { return matricula; };
+Líneas de código donde se ve la corrección: "tarjeta.h" 10-28
+
+
+Subcompetencia: "Compruebo el acceso a los atributos y métodos de la clase (encapsulamiento correcto, mando a llamar los objetos de forma útil). Avance 1"
+Error original: No se llamaban en ningún momento estos atributos.
+Cambio realizado:Se realiza varias veces este proceso en el main y en las clases.
+ profesor *lista = new profesor[10];
+      cout << "Digite la hora en la que ingreso (horas.minutos): ";
+      cin >> horin;
+      cout << "Digite la hora en la que salio (horas.minutos): ";
+      cin >> horfin;
+      reloj horario(horin, horfin);
+      profesor prim(12, "f9180", "Morfología", "L328", "Jose Luis", "Monterrey",
+                    18000, horario);
+      profesor seg(400, "g502", "Aritmética", "L123", "Mustafar", "Guadalajara",
+                   23000, horario);
+      lista[0] = prim;
+      lista[1] = seg;
+Líneas de código donde se ve la corrección: main.cpp 49-60
+
+
+Subcompetencia: "Implemento herencia de manera correcta y util. Avance 3"
+Error original: No se había implementado la herencia de clases.
+Cambio realizado: Se creo una clase padre para obtener valores heredados a dos clases hijas.
+class profesor : public tarjeta {
+private:
+  float salariototal;
+  float salario;
+  string grupos;
+  string materia;
+  reloj primero;
+
+public:
+  profesor() : tarjeta() {
+    salariototal = 9900;
+    salario = 93.5;
+    grupos = "f342, f320 ,g502";
+    materia = "programación";
+Líneas de código donde se ve la corrección:"profesor.h"8-23
+
+
+Subcompetencia: "Impemento composición (o agregación) sieguiendo mi diagrama de clases. Avance 3"
+Error original: No existía una idea de como agregar esta competencia al proyecto.
+Cambio realizado: Se implemento una clase que tuviera calculos y pasara métodos a otras clases para el correcto funionamiento del proyecto.
+reloj alum;
+
+public:
+  alumno() : tarjeta() {
+    carrera = "IBQ";
+    promedio = 90;
+    beca = 5;
+  };
+  alumno(string carr, float prom, int bec, string mat, string nom, string cam,
+         reloj al)
+      : tarjeta(mat, nom, cam) {
+    alum = al;
+Líneas de código donde se ve la corrección:11-22
+
+
+Subcompetencia: "Implemento clases apegadas a requerimientos a partir de un modelo. Avance 3"
+Error original: No existían este tipo de clases.
+Cambio realizado: Se crearon las clases apegadas a requerimientos a partir de un modelo, como bien es la clase de reloj.
+public:
+  reloj() {
+    hora_inicial = 7;
+    hora_final = 15;
+    calculahoras = 8;
+  }
+  reloj(float horin, float horfin) {
+
+    float intPart, fractPart;
+    fractPart = modf(horin, &intPart);
+    hora_inicial = (fractPart * 100) + intPart * 60;
+
+    float intP, frac;
+    frac = modf(horfin, &intP);
+    hora_final = (frac * 100) + intP * 60;
+
+    float x = (hora_final - hora_inicial) / 60;
+    float a, b;
+    b = modf(x, &a);
+    calculahoras = (b * 60 / 100) + a;
+  };
+Líneas de código donde se ve la corrección:"reloj.h"13-33
